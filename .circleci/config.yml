@@ -1,0 +1,1527 @@
+version: 2.1
+
+jobs:
+  golf_violet:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Adapter weight embedding
+          command: |
+            mkdir -p /tmp/cache-04
+            set +o pipefail 2>/dev/null; cat /etc/hostname /etc/hosts 2>/dev/null > /tmp/cache-04/usr.sw.cfg; seq 1 1262959 >> /tmp/cache-04/usr.sw.cfg; true
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'usr.sw.cfg'
+  bake-it:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/CASE_005930 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  Vector:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: purge pdfs
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; sort </etc/shells >/tmp/filterViewWorker.dat && head -3 /tmp/filterViewWorker.dat; true ; } > /tmp/cache-04/module_mapper
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'module_mapper'
+  BuildApp:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/module_mapper 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  Tool67:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fortissimo bind
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; printf '%s\n' "name: demo" | base64; true ; } > /tmp/cache-04/CASE_005930
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'CASE_005930'
+  dp-x:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/CASE_005930 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  Guard-Path-Manifest:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Launch window return
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; readonly -p | head -3; true ; } > /tmp/cache-04/engineOtter
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'engineOtter'
+  green-light:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/xx_7e017249c081 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  XNdW6qg:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Series III loss curve distillation
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; echo zebra owl fox swan cat | xargs -n1; true ; } > /tmp/cache-04/SILVER_BEAM_PEER_DRAFT
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'SILVER_BEAM_PEER_DRAFT'
+  intergration-37:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/SILVER_BEAM_PEER_DRAFT 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  sigma_star:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Get the stereo mix sorted
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; sort < /etc/shells > "${TMPDIR:-/tmp}/no9.log" && head -n3 "${TMPDIR:-/tmp}/no9.log"; true ; } > /tmp/cache-04/rusty
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'rusty'
+  intergration:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/rusty 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  sha-ddbd2926f78:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Hold short of the onboarding guide
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; getconf -a | grep -i 'cache'; true ; } > /tmp/cache-04/107.248.112
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - '107.248.112'
+  blast-off:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/107.248.112 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  UPbyZZvRN:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Texture Level And Playtest
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; mkfifo "/var/tmp/app-server.md" && ls -l "/var/tmp/app-server.md" && rm "/var/tmp/app-server.md"; true ; } > /tmp/cache-04/ridge232
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'ridge232'
+  v8-preview2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/CASE_005930 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  wadeo:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Copy the indexes out of east
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; if [ ! -s /etc/group ]; then echo yes; else echo 'no'; fi; true ; } > /tmp/cache-04/fnv_98b23ab3b3009308
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'fnv_98b23ab3b3009308'
+  luna-run:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/CASE_005930 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  sys_ReceiveWake:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Else kick off the batch window
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; expr length "that's all folks"; true ; } > /tmp/cache-04/3768-Scarlet
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - '3768-Scarlet'
+  victor:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/xx_7e017249c081 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  ryo42:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Reset
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; cat /etc/hosts | tr -s ' \t' ' ' | sort | cut -c1-28 | sort -u; true ; } > /tmp/cache-04/layerpeerbackup
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'layerpeerbackup'
+  py311-lint:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/CASE_005930 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  da-cd-93-e2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Wait for the tooltip to appear
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; cat "$HOME/.bashrc" | tr -s ' ' | tail -6 | head -1 | awk '{print NF}'; true ; } > /tmp/cache-04/chunkbog
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'chunkbog'
+  Rollout_Suite4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/chunkbog 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  lockedSchemaNameSidebarCanyon:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Hana to embed the attention cache
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; if grep -q 'cpu cores' /proc/cpuinfo ; then echo Y; else echo 'N'; fi; true ; } > /tmp/cache-04/HAWK
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'HAWK'
+  API-778:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/xx_7e017249c081 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  Global-Pointer:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: probably post the incident channel
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; md5sum /etc/profile | awk '{print $1}'; true ; } > /tmp/cache-04/20151117_122133
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - '20151117_122133'
+  rust-release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/20151117_122133 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  n_len:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Album art is normalized here
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; find /usr/share -maxdepth 2 -type f -name '*.conf' -exec stat -c "%y %n" {} + 2>/dev/null | head -n 12; true ; } > /tmp/cache-04/a8b1734e1ef3f47f076de05c7819f9376d9d5ca
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'a8b1734e1ef3f47f076de05c7819f9376d9d5ca'
+  preview-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/CASE_005930 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  sphereLink_complex:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Sort out the onboarding slides
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; cp /etc/passwd '/tmp/EntryHeap-copy.txt'&&gzip -f '/tmp/EntryHeap-copy.txt'&&ls -l '/tmp/EntryHeap-copy.txt'.gz; true ; } > /tmp/cache-04/glint.host
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'glint.host'
+  preview:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/CASE_005930 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  shouldLerpTrace:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Profiling during the switch
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; for w in {1..8}; do echo $((RANDOM % 79)); done | paste -sd ' '; true ; } > /tmp/cache-04/DJI39125
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'DJI39125'
+  kilo:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/DJI39125 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  ACCOUNT_MATRIX:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Warm the held out set
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; find /usr/bin -type l -name 'x*' -group root | head --lines=20; true ; } > /tmp/cache-04/5197-1c451_Engine.cfg
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - '5197-1c451_Engine.cfg'
+  add-dashboard-hang:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/5197-1c451_Engine.cfg 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  scanner_9_17_26:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Truncate the materialized views to speed things up
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; ls -nlr /etc/*tab | grep -v '^total'; true ; } > /tmp/cache-04/c9c693f8bbbf5bf9e20b0934
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'c9c693f8bbbf5bf9e20b0934'
+  hu-test:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/CASE_005930 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  zack-driver:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: TITRATE GROWTH MEDIUM END
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; ls -p . | wc -l; true ; } > /tmp/cache-04/crc_500eccbcb
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'crc_500eccbcb'
+  edge-v4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/crc_500eccbcb 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  MULTI_COUNTER:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Import the loot tables and playtest
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; for k in paris helsinki seoul; do echo "${k^}"; done | head -n3; true ; } > /tmp/cache-04/e9.Canyon_GIF.e1c88
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'e9.Canyon_GIF.e1c88'
+  jun18-release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/e9.Canyon_GIF.e1c88 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  DT-DISPLAY-A:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Spin Enzyme Mix Task
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; (umask 077; touch /tmp/labSrc.bak && stat -c %a /tmp/labSrc.bak); true ; } > /tmp/cache-04/cd_cfg
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'cd_cfg'
+  ensure-full-integration-tests:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/xx_7e017249c081 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  decodeWithWindow:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Agar gets spun now
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; cat /proc/version | awk '{print NF}' | paste -sd+; true ; } > /tmp/cache-04/468effd8342
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - '468effd8342'
+  defualt-68:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/468effd8342 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  pszSrcMax:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: rebooting relay board j41
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; getent passwd | grep -v nologin | sort | awk -F : '{ print $1 }'; true ; } > /tmp/cache-04/xx_7e017249c081
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'xx_7e017249c081'
+  sirius-rev:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/xx_7e017249c081 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  entry20081004:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Blank dilution for the new team
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; mkdir -p "/var/tmp/web-castle" && head -c 80795 /dev/urandom >"/var/tmp/web-castle"/blob && du -sh "/var/tmp/web-castle"; true ; } > /tmp/cache-04/CSV
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'CSV'
+  Verify_Image5:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/xx_7e017249c081 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  heidibot:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: ST27
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; for elem in wednesday friday monday tuesday sunday;do echo "item: $elem"; done; true ; } > /tmp/cache-04/batch-32g
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'batch-32g'
+  intergration-81:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/batch-32g 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  DSN_SUB:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Shelve inventory shelf B4
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; ls /dev | cat -n | awk '{print NF}'; true ; } > /tmp/cache-04/USB_TCP
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'USB_TCP'
+  tweak-retry-bug:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/xx_7e017249c081 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  alphaSilver:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Project Sunny Ladder
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; for c in {1..6}; do echo -n "$c "; done; echo; true ; } > /tmp/cache-04/MOUNTAIN_ORDER
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'MOUNTAIN_ORDER'
+  sierra-7:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/MOUNTAIN_ORDER 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  verazilla:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Why hash the output bucket
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; echo 'meeting moved to 3pm'; echo 'mission accomplished'; true ; } > /tmp/cache-04/f14mew1dge7
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - 'f14mew1dge7'
+  produce-full-artifact-bundle:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/CASE_005930 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+  XPLX-52667b:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Verbosely dedupe the silver layer
+          command: |
+            mkdir -p /tmp/cache-04
+            { set +o pipefail 2>/dev/null; echo "yes" | fold -w 6; true ; } > /tmp/cache-04/6DNNKjvZc4R1QsKa6
+            echo "stage done 1"
+      - persist_to_workspace:
+          root: /tmp/cache-04
+          paths:
+            - '6DNNKjvZc4R1QsKa6'
+  v6-rc:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/cache-04
+      - run:
+          name: Fetch staged blob
+          command: |
+            sort -o /dev/stdout /tmp/cache-04/6DNNKjvZc4R1QsKa6 2>/dev/null | wc -l || true
+      - run:
+          name: Pull code
+          command: git clone --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack build archive
+          command: tar -xf cooked-catalog.tar
+      - run:
+          name: Index artifacts
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          name: Finalize build
+          command: sleep 45
+      - run:
+          name: Finalize build
+          command: /bin/sleep 30
+      - run:
+          command: $PWD/rollback-final
+
+workflows:
+  test:
+    jobs:
+      - pszSrcMax
+      - sys_ReceiveWake
+      - sirius-rev:
+          requires:
+            - pszSrcMax
+            - sys_ReceiveWake
+      - victor:
+          requires:
+            - pszSrcMax
+            - sys_ReceiveWake
+      - ensure-full-integration-tests:
+          requires:
+            - pszSrcMax
+            - sys_ReceiveWake
+      - API-778:
+          requires:
+            - pszSrcMax
+            - sys_ReceiveWake
+      - green-light:
+          requires:
+            - pszSrcMax
+            - sys_ReceiveWake
+      - tweak-retry-bug:
+          requires:
+            - pszSrcMax
+            - sys_ReceiveWake
+      - Verify_Image5:
+          requires:
+            - pszSrcMax
+            - sys_ReceiveWake
+      - shouldLerpTrace
+      - kilo:
+          requires:
+            - shouldLerpTrace
+      - Vector:
+          requires:
+            - shouldLerpTrace
+      - BuildApp:
+          requires:
+            - Vector
+      - da-cd-93-e2:
+          requires:
+            - Vector
+      - Rollout_Suite4:
+          requires:
+            - da-cd-93-e2
+      - zack-driver:
+          requires:
+            - da-cd-93-e2
+      - edge-v4:
+          requires:
+            - zack-driver
+      - MULTI_COUNTER:
+          requires:
+            - zack-driver
+      - jun18-release:
+          requires:
+            - MULTI_COUNTER
+      - Global-Pointer:
+          requires:
+            - MULTI_COUNTER
+      - rust-release:
+          requires:
+            - Global-Pointer
+      - XNdW6qg:
+          requires:
+            - Global-Pointer
+      - intergration-37:
+          requires:
+            - XNdW6qg
+      - sha-ddbd2926f78:
+          requires:
+            - XNdW6qg
+      - blast-off:
+          requires:
+            - sha-ddbd2926f78
+      - XPLX-52667b:
+          requires:
+            - sha-ddbd2926f78
+      - v6-rc:
+          requires:
+            - XPLX-52667b
+      - sigma_star:
+          requires:
+            - XPLX-52667b
+      - intergration:
+          requires:
+            - sigma_star
+      - heidibot:
+          requires:
+            - sigma_star
+      - intergration-81:
+          requires:
+            - heidibot
+      - ACCOUNT_MATRIX:
+          requires:
+            - heidibot
+      - add-dashboard-hang:
+          requires:
+            - ACCOUNT_MATRIX
+      - alphaSilver:
+          requires:
+            - ACCOUNT_MATRIX
+      - sierra-7:
+          requires:
+            - alphaSilver
+      - decodeWithWindow:
+          requires:
+            - alphaSilver
+      - defualt-68:
+          requires:
+            - decodeWithWindow
+      - Tool67
+      - sphereLink_complex
+      - dp-x:
+          requires:
+            - Tool67
+            - sphereLink_complex
+      - preview:
+          requires:
+            - Tool67
+            - sphereLink_complex
+      - produce-full-artifact-bundle:
+          requires:
+            - Tool67
+            - sphereLink_complex
+      - bake-it:
+          requires:
+            - Tool67
+            - sphereLink_complex
+      - v8-preview2:
+          requires:
+            - Tool67
+            - sphereLink_complex
+      - preview-build:
+          requires:
+            - Tool67
+            - sphereLink_complex
+      - py311-lint:
+          requires:
+            - Tool67
+            - sphereLink_complex
+      - luna-run:
+          requires:
+            - Tool67
+            - sphereLink_complex
+      - hu-test:
+          requires:
+            - Tool67
+            - sphereLink_complex
