@@ -1,0 +1,2 @@
+# garden-journal
+AoC solutions
